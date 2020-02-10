@@ -1,160 +1,593 @@
 {
 	"info": {
-		"_postman_id": "40f0b9bf-8681-4aac-bce0-e8297321b14a",
-		"name": "mongoHTTPInterface",
+		"_postman_id": "0f7ba828-2724-4a3c-a3ab-268ce7793ebb",
+		"name": "DeliveryParts Team / dp-cp-be",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "listCollections",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{endpoint}}:{{port}}/",
-					"host": [
-						"{{endpoint}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "appendRecord",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\":\"Test\",\n\t\"description\":\"This is test\",\n\t\"time\": 1581323099\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "login",
+			"item": [
+				{
+					"name": "sing in",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"reptily\",\"password\":\"8481370\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/login?",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "reptily",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "8481370",
+									"disabled": true
+								}
+							]
 						}
-					}
-				},
-				"url": {
-					"raw": "{{endpoint}}:{{port}}/test",
-					"host": [
-						"{{endpoint}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"test"
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "getRecordForCollection",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{endpoint}}:{{port}}/test/1",
-					"host": [
-						"{{endpoint}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"test",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getRecord",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{endpoint}}:{{port}}/test/5e4124259bc9aa09a07f27d3",
-					"host": [
-						"{{endpoint}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"test",
-						"5e4124259bc9aa09a07f27d3"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteRecord",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{endpoint}}:{{port}}/test/5e4117328262d875fda2cf25",
-					"host": [
-						"{{endpoint}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"test",
-						"5e4117328262d875fda2cf25"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateRecord",
-			"request": {
-				"method": "PATCH",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"name\":\"Update\",\n\t\"description\":\"Update!!!!\",\n\t\"time\": 1666666666\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "draft",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/draft?page=1",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"draft"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{endpoint}}:{{port}}/test/5e4124259bc9aa09a07f27d3",
-					"host": [
-						"{{endpoint}}"
-					],
-					"port": "{{port}}",
-					"path": [
-						"test",
-						"5e4124259bc9aa09a07f27d3"
-					]
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/draft/860e6897-27d8-49fd-9eae-329954037e98",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"draft",
+								"860e6897-27d8-49fd-9eae-329954037e98"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"client\":89,\n    \"delivery_date_from\":\"2019-10-10\",\n    \"delivery_price\":300,\n    \"vin\":\"AK131564813SD\",\n    \"car_model\":\"Hyundai\",\n    \"draft_items\":[\n    \t{\n\t    \t\"brand\":\"Hyundai/KIE\",\n\t        \"part_name\":\"Тормозные колодки\",\n\t        \"part_number\":\"5810125A00\",\n\t        \"part_type\":\"original\",\n\t        \"price\":3511,\n\t        \"qty\":1,\n\t        \"is_available\":true,\n\t        \"replaces\":[\n\t        \t{\n\t\t\t        \"brand\":\"BOSCH\",\n\t\t\t        \"part_name\":\"Тормозные колодки\",\n\t\t\t        \"part_number\":\"986461127\",\n\t\t\t        \"part_type\":\"analog_recommended\",\n\t\t\t        \"price\":1257,\n\t\t\t        \"qty\":1,\n\t\t\t        \"is_available\":true\n\t        \t},\n\t        \t{\n\t\t\t        \"brand\":\"TRANSMASTER\",\n\t\t\t        \"part_name\":\"Тормозные колодки\",\n\t\t\t        \"part_number\":\"TR991C\",\n\t\t\t        \"part_type\":\"analog_budjet\",\n\t\t\t        \"price\":319,\n\t\t\t        \"qty\":1,\n\t\t\t        \"is_available\":true\n\t        \t}\n\t        ]\n    \t}\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/draft",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"draft"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"uid\":\"860e6897-27d8-49fd-9eae-329954037e98\",\n    \"delivery_date_from\":\"2019-10-10\",\n    \"delivery_price\":300,\n    \"vin\":\"AK131564813SD\",\n    \"car_model\":\"Hyundai\",\n    \"draft_items\": [\n            {\n                \"id\": 225,\n                \"qty\": 1,\n                \"brand\": \"Hyundai/KIE\",\n                \"part_name\": \"Тормозные колодки\",\n                \"part_number\": \"5810125A00\",\n                \"part_type\": \"original\",\n                \"price\": 3511,\n                \"parent_id\": 0,\n                \"is_available\": true,\n                \"replaces\": [\n                    {\n                        \"id\": 226,\n                        \"draft_id\": 130,\n                        \"qty\": 1,\n                        \"brand\": \"BOSCH\",\n                        \"part_name\": \"Тормозные колодки\",\n                        \"part_number\": \"986461127\",\n                        \"part_type\": \"analog_recommended\",\n                        \"price\": 1257,\n                        \"parent_id\": 225,\n                        \"is_available\": true\n                    },\n                    {\n                        \"id\": 227,\n                        \"draft_id\": 130,\n                        \"qty\": 1,\n                        \"brand\": \"TRANSMASTER\",\n                        \"part_name\": \"Тормозные колодки\",\n                        \"part_number\": \"TR991C\",\n                        \"part_type\": \"analog_budjet\",\n                        \"price\": 319,\n                        \"parent_id\": 225,\n                        \"is_available\": true\n                    }\n                ]\n            },\n            {\n            \t\"id\": null,\n                \"qty\": 1,\n                \"brand\": \"TEST Hyundai/KIE\",\n                \"part_name\": \"Тормозные колодки\",\n                \"part_number\": \"5810125A00\",\n                \"part_type\": \"original\",\n                \"price\": 3511,\n                \"parent_id\": 0,\n                \"is_available\": true,\n                \"replaces\": [\n                    {\n                        \"id\": null,\n                        \"draft_id\": 130,\n                        \"qty\": 1,\n                        \"brand\": \"TEST BOSCH\",\n                        \"part_name\": \"Тормозные колодки\",\n                        \"part_number\": \"986461127\",\n                        \"part_type\": \"analog_recommended\",\n                        \"price\": 1257,\n                        \"parent_id\": 225,\n                        \"is_available\": true\n                    }]\n            }\n        ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/draft/",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"draft",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send sms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/draft/send_sms?uid=b0fc7abb-7b75-40fd-ac34-da11afa1b5ea",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"draft",
+								"send_sms"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "b0fc7abb-7b75-40fd-ac34-da11afa1b5ea"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/draft/send_email?uid=b0fc7abb-7b75-40fd-ac34-da11afa1b5ea",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"draft",
+								"send_email"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "b0fc7abb-7b75-40fd-ac34-da11afa1b5ea"
+								}
+							]
+						}
+					},
+					"response": []
 				}
-			},
-			"response": []
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "911",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ex@test.ru",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Test",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endpoint}}/client",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"AAA\",\n    \"email\":\"test@test.ru\",\n    \"phone\":911\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/client/1890?",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"client",
+								"1890"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "rrrr",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "ttt@tt.ru",
+									"disabled": true
+								},
+								{
+									"key": "phone",
+									"value": "4324",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/client/?phone=112&email=test@test.ru&name=Test&id=84",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"client",
+								""
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "112"
+								},
+								{
+									"key": "email",
+									"value": "test@test.ru"
+								},
+								{
+									"key": "name",
+									"value": "Test"
+								},
+								{
+									"key": "id",
+									"value": "84"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/client/1890",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"client",
+								"1890"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/client",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"client"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "part_types",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/part_types",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"part_types"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "status",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/status",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"status"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "order",
+			"item": [
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{endpoint}}/order",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endpoint}}/order/92",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order",
+								"92"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"uid\":\"096ab7d9-dced-485d-a887-433823bc5b78\",\n\t\"delivery_type\":1,\n\t\"delivery_address\":\"Москва ул. Ленина д.1\",\n\t\"delivery_time\":\"c 12:00 до 18:00\",\n\t\"delivery_date\":\"2020-10-10\",\n\t\"contact_phone\":\"79150512020\",\n\t\"contact_name\":\"Иван Иванов\",\n\t\"comment\":\"позвонить перед выездом курьера\",\n\t\"selected\":[\n\t\t{\n\t\t\t\"id\": 812,\n\t\t\t\"qty\":1\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":721,\n\t\"delivery_type\":1,\n\t\"delivery_address\":\"Москва ул. Ленина д.1\",\n\t\"delivery_time\":\"c 12:00 до 18:00\",\n\t\"delivery_date\":\"2020-10-10\",\n\t\"contact_phone\":\"79150512020\",\n\t\"contact_name\":\"Иван Иванов\",\n\t\"comment\":\"позвонить перед выездом курьера\",\n\t\"vin\":\"AK131564813SD\",\n\t\"car_model\":\"Hyundai\",\n\t\"status\":\"complited\",\n\t\"order_items\": [\n\t\t{\n\t\t\t\"id\": 215,\n            \"brand\":\"Hyundai/KIE\",\n            \"part_name\":\"Тормозные колодки\",\n            \"part_number\":\"5810125A00\",\n            \"part_type\":\"original\",\n            \"price\":35110,\n            \"qty\":10\n\t\t},\n\t\t{\n            \"brand\":\"BOSCH\",\n            \"part_name\":\"Тормозные колодки\",\n            \"part_number\":\"986461127\",\n            \"part_type\":\"analog_recommended\",\n            \"price\":12570,\n            \"qty\":20\n\t\t},\n\t\t{\n\t\t\t\"id\":999,\n\t\t\t\"delete\":true\n\t\t}\n\t]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endpoint}}/order",
+							"host": [
+								"{{endpoint}}"
+							],
+							"path": [
+								"order"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODM0Zjc4NWQwMGE1NTQzYmQ1YTc4MmE0YTc2NmFmNzk5Y2FiMTYxMDgyYTRkZTViYWNjOTViYTRkMzFhODczNzgwMjc2MjY2MjYyYmYxODMiLCJpYXQiOjE1NzkxNzUxMTMsIm5iZiI6MTU3OTE3NTExMywiZXhwIjoxNjEwNzk3NTEzLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.lgIVbngwqJuHyc4hIFA0b-2nNMJTDpBizpCQ0LgLPTMbO3QkJlQYEbDp6LS-yi0yJIXc6C2EB5Gqn8E12MH3ab1A9SUSENt_bWGHsnc3N7gFYeb4mk4CQKMavOTgr0NQJISu0xuhWKwd_D4tnOiDjc-TVKFALXYYtGVmo1LueEGtSR53tHouAsdCSaALJh8elco5BBVF5pqQtg7rVYMw2CjH8R3HDUS93x8A7HM0EAmd0l1zwYZ6L9IFQXaUg9pqp94y-Rpe90G1hIkVBbA4a5G_BOKJt8yxnKAxYBf5iMkkdEa_Mno6kpeNGz4w5rrMezIeZiblUiGgMJC8FbP8JiKBvIQq_uilfDsq_DIrJbh2QMiTdItuzGc_9fuprJPdI_Hq9_VESS4R946jKnLN4NcNYUrVT0h6T5ETq6NpYd_v4HRKBrzRMEWwU1uAwOpQy77nYWheB4vOrrywRbym_H260FnO_Sk7D91XKBYxnASSp0jzrsSlR7vQfjHtgOTng0FK-PVxx98sSEy9NmN-gB8J448jIddQViGUyQE9OddclpmozWZxJNZ48vmiEpGVe93a8H4WZMvBrUmE-Ivqw0fxt_N7iXRkUx2gcCyocFR5cF6yDBLXLutz5kYQZY6TqFg3q_ERZmve7cOSbCgSvY4kasuhqXnSAjk42fT2LI8",
+				"type": "string"
+			}
+		]
+	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9f05e563-81a6-40eb-bbdf-4503bc9bd910",
+				"id": "269c7d12-64ef-4596-a2d0-d0f2b0b493a2",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -164,7 +597,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "93d6c184-cc36-4c5f-870f-d547ddbe8ad8",
+				"id": "136432ac-8024-469b-88fe-7232bf468829",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -174,15 +607,21 @@
 	],
 	"variable": [
 		{
-			"id": "9284c437-2cbb-4ff2-bfde-355415e1db93",
+			"id": "3bfc56d7-bae1-48dd-a28c-cd5226f6c1f2",
 			"key": "endpoint",
-			"value": "127.0.0.1",
+			"value": "http://dp.test/api",
 			"type": "string"
 		},
 		{
-			"id": "db7f7400-1ee3-42c5-89e6-f8082b05fe34",
-			"key": "port",
-			"value": "3000",
+			"id": "f084688d-182f-44ce-b623-f4485fe0330b",
+			"key": "draft_uid",
+			"value": "b0fc7abb-7b75-40fd-ac34-da11afa1b5ea",
+			"type": "string"
+		},
+		{
+			"id": "2b392406-c0fc-4597-bdea-1c2b0b136f88",
+			"key": "client_id",
+			"value": "1890",
 			"type": "string"
 		}
 	],
