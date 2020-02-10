@@ -51,7 +51,7 @@ response
 ]
 ```
 
-**Insert record***
+**Insert record**
 POST - /test\
 test - name collection\
 \
@@ -97,7 +97,7 @@ response
 }
 ```
 
-**Update record***
+**Update record**
 PATCH - /test\
 test - name collection\
 5e4117328262d875fda2cf25 - identification\
@@ -125,7 +125,7 @@ response
 }
 ```
 
-**Delete record***
+**Delete record**
 POST - /test\
 test - name collection\
 5e4117328262d875fda2cf25 - identification\
