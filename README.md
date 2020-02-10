@@ -150,3 +150,125 @@ response
     "ok": 1
 }
 ```
+
+**Insert many records**
+
+POST - /test\
+test - name collection\
+\
+request
+```json
+[
+	{
+	"name":"Test One",
+	"description":"This is test one",
+	"time": 1581323099
+	},
+	{
+	"name":"Test Two",
+	"description":"This is test two",
+	"time": 1581323099
+	}
+]
+```
+response
+```json
+{
+    "result": {
+        "ok": 1,
+        "n": 2
+    },
+    "ops": [
+        {
+            "name": "Test One",
+            "description": "This is test one",
+            "time": 1581323099,
+            "_id": "5e4141e1d06b682e8f006c9f"
+        },
+        {
+            "name": "Test Two",
+            "description": "This is test two",
+            "time": 1581323099,
+            "_id": "5e4141e1d06b682e8f006ca0"
+        }
+    ],
+    "insertedCount": 2,
+    "insertedIds": {
+        "0": "5e4141e1d06b682e8f006c9f",
+        "1": "5e4141e1d06b682e8f006ca0"
+    }
+}
+```
+
+**Update many records**
+
+PATCH - /test\
+test - name collection\
+\
+*Key json*
+* find - params for find records
+* set - update params
+
+request
+```json
+{
+	"find":{
+		"name":"Update Many"
+	},
+	"set":{
+		"name":"Update Many",
+		"description":"Update!!!!",
+		"time": 1666666666
+	}
+}
+```
+
+response
+```json
+{
+    "result": {
+        "n": 5,
+        "nModified": 0,
+        "ok": 1
+    },
+    "connection": {
+        "id": 0,
+        "host": "127.0.0.1",
+        "port": 27017
+    },
+    "modifiedCount": 0,
+    "upsertedId": null,
+    "upsertedCount": 0,
+    "matchedCount": 5,
+    "n": 5,
+    "nModified": 0,
+    "ok": 1
+}
+```
+
+**Delete record by filter**
+DELETE - /test\
+test - name collection\
+request
+```json
+{
+	"name":"Test One"
+}
+```
+
+response
+```json
+{
+    "result": {
+        "n": 1,
+        "ok": 1
+    },
+    "connection": {
+        "id": 0,
+        "host": "127.0.0.1",
+        "port": 27017
+    },
+    "n": 1,
+    "ok": 1
+}
+```

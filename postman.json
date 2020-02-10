@@ -24,7 +24,7 @@
 			"response": []
 		},
 		{
-			"name": "appendRecord",
+			"name": "appendRecordOne",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -38,6 +38,40 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n\t\"name\":\"Test\",\n\t\"description\":\"This is test\",\n\t\"time\": 1581323099\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appendRecordMany",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\"name\":\"Test One\",\n\t\"description\":\"This is test one\",\n\t\"time\": 1581323099\n\t},\n\t{\n\t\"name\":\"Test Two\",\n\t\"description\":\"This is test two\",\n\t\"time\": 1581323099\n\t}\n]",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -96,7 +130,7 @@
 			"response": []
 		},
 		{
-			"name": "deleteRecord",
+			"name": "deleteRecordOne",
 			"request": {
 				"method": "DELETE",
 				"header": [],
@@ -115,7 +149,41 @@
 			"response": []
 		},
 		{
-			"name": "updateRecord",
+			"name": "deleteRecordMany",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Test One\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecordOne",
 			"request": {
 				"method": "PATCH",
 				"header": [
@@ -148,6 +216,75 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "updateRecordMany",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"find\":{\n\t\t\"name\":\"Update Many\"\n\t},\n\t\"set\":{\n\t\t\"name\":\"Update Many\",\n\t\t\"description\":\"Update!!!!\",\n\t\t\"time\": 1666666666\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterRecords",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -174,13 +311,13 @@
 	],
 	"variable": [
 		{
-			"id": "9284c437-2cbb-4ff2-bfde-355415e1db93",
+			"id": "19659b05-5cc3-417f-809a-80a2942648cb",
 			"key": "endpoint",
 			"value": "127.0.0.1",
 			"type": "string"
 		},
 		{
-			"id": "db7f7400-1ee3-42c5-89e6-f8082b05fe34",
+			"id": "9ee5028f-e927-4fd3-846e-d96bc94b23dd",
 			"key": "port",
 			"value": "3000",
 			"type": "string"
