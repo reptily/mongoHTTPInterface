@@ -4,58 +4,7 @@
 		"name": "DeliveryParts Team / dp-cp-be",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
-	"item": [
-		{
-			"name": "login",
-			"item": [
-				{
-					"name": "sing in",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"username\": \"reptily\",\"password\":\"8481370\"}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{endpoint}}/login?",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"login"
-							],
-							"query": [
-								{
-									"key": "username",
-									"value": "reptily",
-									"disabled": true
-								},
-								{
-									"key": "password",
-									"value": "8481370",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
+	"item": [		
 		{
 			"name": "appendRecordOne",
 			"request": {
