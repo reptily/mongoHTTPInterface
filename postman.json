@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "40f0b9bf-8681-4aac-bce0-e8297321b14a",
+		"name": "mongoHTTPInterface",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "listCollections",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "appendRecord",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Test\",\n\t\"description\":\"This is test\",\n\t\"time\": 1581323099\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRecordForCollection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRecord",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/5e4124259bc9aa09a07f27d3",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"5e4124259bc9aa09a07f27d3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRecord",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/5e4117328262d875fda2cf25",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"5e4117328262d875fda2cf25"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecord",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Update\",\n\t\"description\":\"Update!!!!\",\n\t\"time\": 1666666666\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/5e4124259bc9aa09a07f27d3",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"5e4124259bc9aa09a07f27d3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "9f05e563-81a6-40eb-bbdf-4503bc9bd910",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "93d6c184-cc36-4c5f-870f-d547ddbe8ad8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9284c437-2cbb-4ff2-bfde-355415e1db93",
+			"key": "endpoint",
+			"value": "127.0.0.1",
+			"type": "string"
+		},
+		{
+			"id": "db7f7400-1ee3-42c5-89e6-f8082b05fe34",
+			"key": "port",
+			"value": "3000",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
