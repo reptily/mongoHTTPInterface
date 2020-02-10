@@ -56,6 +56,14 @@ response
 POST - /test\
 test - name collection\
 \
+request
+```json
+{
+	"name":"Test",
+	"description":"This is test",
+	"time": 1581323099
+}
+```
 response
 ```json
 {
@@ -105,6 +113,14 @@ PATCH - /test\
 test - name collection\
 5e4117328262d875fda2cf25 - identification\
 \
+request
+```json
+{
+	"name":"Update",
+	"description":"Update!!!!",
+	"time": 1666666666
+}
+```
 response
 ```json
 {
