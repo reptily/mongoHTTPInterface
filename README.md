@@ -56,6 +56,14 @@ response
 POST - /test\
 test - name collection\
 \
+request
+```json
+{
+	"name":"Test",
+	"description":"This is test",
+	"time": 1581323099
+}
+```
 response
 ```json
 {
@@ -105,6 +113,14 @@ PATCH - /test\
 test - name collection\
 5e4117328262d875fda2cf25 - identification\
 \
+request
+```json
+{
+	"name":"Update",
+	"description":"Update!!!!",
+	"time": 1666666666
+}
+```
 response
 ```json
 {
@@ -149,4 +165,39 @@ response
     "n": 1,
     "ok": 1
 }
+```
+
+**Filter Records**
+
+PUT - /test/1\
+test - name collection\
+1 - page\
+\
+request
+```json
+{
+	"name": "Test"
+}
+```
+
+response
+```json
+[
+    {
+        "_id": "5e411752f9cded7619cf9962",
+        "name": "Test",
+        "description": "This is test",
+        "time": 1581323099
+    },
+    {
+        "_id": "5e4123fe9bc9aa09a07f27d2",
+        "name": "Test",
+        "description": "This is test",
+        "time": 1581323099
+    },
+    {
+        "_id": "5e4129ba1c52dd1176c226f3",
+        "name": "Test"
+    }
+]
 ```

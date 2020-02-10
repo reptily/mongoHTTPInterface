@@ -33,6 +33,17 @@ http.get('/*/[0-9]+', (req, res) => {
     });
 });
 
+//Filter for collection
+http.put('/*/[0-9]+', (req, res) => {
+    let page = parseURL(req)[2];console.log(req.body);
+    db.collection(parseURL(req)[1]).find(req.body)
+        .limit(page*Config.limitRecord)
+        .skip((page-1)*Config.limitRecord)
+        .toArray((err, objs) => {
+            res.json(objs);
+        });
+});
+
 //Update record
 http.patch('/*/*', (req, res) => {
     let id = new MongoClient.ObjectID(parseURL(req)[2]);
