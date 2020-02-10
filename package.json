@@ -1,0 +1,23 @@
+{
+  "name": "mongohttpinterface",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/reptily/mongoHTTPInterface.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reptily/mongoHTTPInterface/issues"
+  },
+  "homepage": "https://github.com/reptily/mongoHTTPInterface#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.5.2"
+  }
+}
