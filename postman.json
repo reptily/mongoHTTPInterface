@@ -57,30 +57,25 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "draft",
-			"item": [
-				{
-					"name": "list",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/draft?page=1",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"draft"
-							],
-							"query": [
-								{
-									"key": "page",
-									"value": "1"
-								}
-							]
+			"name": "appendRecordOne",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Test\",\n\t\"description\":\"This is test\",\n\t\"time\": 1581323099\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					},
-					"response": []
+					}
 				},
 				{
 					"name": "get",
@@ -238,176 +233,54 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "client",
-			"item": [
-				{
-					"name": "create",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/x-www-form-urlencoded",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "phone",
-									"value": "911",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "ex@test.ru",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Test",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{endpoint}}/client",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"client"
-							]
+			"name": "appendRecordMany",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n\t{\n\t\"name\":\"Test One\",\n\t\"description\":\"This is test one\",\n\t\"time\": 1581323099\n\t},\n\t{\n\t\"name\":\"Test Two\",\n\t\"description\":\"This is test two\",\n\t\"time\": 1581323099\n\t}\n]",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					},
-					"response": []
+					}
 				},
-				{
-					"name": "get",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"name\":\"AAA\",\n    \"email\":\"test@test.ru\",\n    \"phone\":911\n}\n",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{endpoint}}/client/1890?",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"client",
-								"1890"
-							],
-							"query": [
-								{
-									"key": "name",
-									"value": "rrrr",
-									"disabled": true
-								},
-								{
-									"key": "email",
-									"value": "ttt@tt.ru",
-									"disabled": true
-								},
-								{
-									"key": "phone",
-									"value": "4324",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "edit",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/client/?phone=112&email=test@test.ru&name=Test&id=84",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"client",
-								""
-							],
-							"query": [
-								{
-									"key": "phone",
-									"value": "112"
-								},
-								{
-									"key": "email",
-									"value": "test@test.ru"
-								},
-								{
-									"key": "name",
-									"value": "Test"
-								},
-								{
-									"key": "id",
-									"value": "84"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "delete",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/client/1890",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"client",
-								"1890"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "list",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/client",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"client"
-							]
-						}
-					},
-					"response": []
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRecordForCollection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"1"
+					]
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -436,72 +309,78 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "status",
-			"item": [
-				{
-					"name": "list",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/status",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"status"
-							]
-						}
-					},
-					"response": []
+			"name": "deleteRecordOne",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/5e4117328262d875fda2cf25",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"5e4117328262d875fda2cf25"
+					]
 				}
 			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "order",
-			"item": [
-				{
-					"name": "list",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{endpoint}}/order",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"order"
-							]
+			"name": "deleteRecordMany",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Test One\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					},
-					"response": []
+					}
 				},
-				{
-					"name": "get",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{endpoint}}/order/92",
-							"host": [
-								"{{endpoint}}"
-							],
-							"path": [
-								"order",
-								"92"
-							]
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecordOne",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\":\"Update\",\n\t\"description\":\"Update!!!!\",\n\t\"time\": 1666666666\n}",
+					"options": {
+						"raw": {
+							"language": "json"
 						}
-					},
-					"response": []
+					}
 				},
 				{
 					"name": "create",
@@ -569,8 +448,77 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRecordMany",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"find\":{\n\t\t\"name\":\"Update Many\"\n\t},\n\t\"set\":{\n\t\t\"name\":\"Update Many\",\n\t\t\"description\":\"Update!!!!\",\n\t\t\"time\": 1666666666\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filterRecords",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}:{{port}}/test/1",
+					"host": [
+						"{{endpoint}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"test",
+						"1"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {
@@ -607,7 +555,7 @@
 	],
 	"variable": [
 		{
-			"id": "3bfc56d7-bae1-48dd-a28c-cd5226f6c1f2",
+			"id": "19659b05-5cc3-417f-809a-80a2942648cb",
 			"key": "endpoint",
 			"value": "http://dp.test/api",
 			"type": "string"
@@ -619,9 +567,9 @@
 			"type": "string"
 		},
 		{
-			"id": "2b392406-c0fc-4597-bdea-1c2b0b136f88",
-			"key": "client_id",
-			"value": "1890",
+			"id": "9ee5028f-e927-4fd3-846e-d96bc94b23dd",
+			"key": "port",
+			"value": "3000",
 			"type": "string"
 		}
 	],

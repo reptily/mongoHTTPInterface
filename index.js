@@ -17,7 +17,7 @@ http.get('/', (req, res) => {
 
 //Append record
 http.post('*', (req, res) => {
-    db.collection(parseURL(req)[1]).insertOne(req.body, (err, obj) =>{
+    db.collection(parseURL(req)[1]).insert(req.body, (err, obj) =>{
         res.json(obj);
     });
 });
@@ -45,9 +45,16 @@ http.put('/*/[0-9]+', (req, res) => {
 });
 
 //Update record
-http.patch('/*/*', (req, res) => {
+http.patch('/*/*+', (req, res) => {
     let id = new MongoClient.ObjectID(parseURL(req)[2]);
     db.collection(parseURL(req)[1]).updateOne({_id: id}, {$set: req.body}, (err, obj) =>{
+        res.json(obj);
+    });
+});
+
+//Update many record
+http.patch('/*', (req, res) => {
+    db.collection(parseURL(req)[1]).updateMany(req.body.find, {$set: req.body.set}, (err, obj) =>{
         res.json(obj);
     });
 });
@@ -62,9 +69,16 @@ http.get('/*/*', (req, res) => {
 });
 
 //Delete record
-http.delete('/*/*', (req, res) => {
+http.delete('/*/*+', (req, res) => {
     let id = new MongoClient.ObjectID(parseURL(req)[2]);
     db.collection(parseURL(req)[1]).remove({_id: id}, (err, obj) => {
+        res.json(obj);
+    });
+});
+
+//Delete many record
+http.delete('/*', (req, res) => {
+    db.collection(parseURL(req)[1]).remove(req.body, (err, obj) => {
         res.json(obj);
     });
 });
