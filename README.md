@@ -146,7 +146,7 @@ response
 
 **Delete record**
 
-POST - /test\
+DELETE - /test\
 test - name collection\
 5e4117328262d875fda2cf25 - identification\
 \
